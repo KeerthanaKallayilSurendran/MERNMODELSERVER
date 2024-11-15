@@ -22,5 +22,17 @@ exports.addTaskController = async (req, res) => {
 };
 
 
+exports.allTaskView = async (req, res) => {
+    console.log("Inside page project controller");
+    try {
+        const allTask = await task.find()
+
+        res.status(200).json(allTask)
+    } catch (err) {
+        res.status(401).json(err)
+    }
+
+}
+
 
 
