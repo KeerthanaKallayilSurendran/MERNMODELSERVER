@@ -1,26 +1,34 @@
 const mongoose = require("mongoose");
 
-
-const subtaskSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true, 
-    },
-    isCompleted: {
-        type: Boolean,
-        default: false, 
-    },
-}); 
-
 const taskSchema = new mongoose.Schema({
-    maintask: {
+    taskName: {
         type: String,
-        required: true, 
+        required: true,
     },
-    subtask: {
-        type: [subtaskSchema], 
-        default: [], 
+    taskDescription: {
+        type: String,
+        require: true
     },
+    startDate: {
+        type: Date,
+        require: true
+    },
+    endDate: {
+        type: Date,
+        require: true
+    },
+    taskStatus: {
+        type: String,
+        require:true
+    },
+    progress: {
+        type: String,
+        require: true
+    },
+    userId: {
+        type: String,
+        require: true
+    }
 });
 
-module.exports = mongoose.model("Task", taskSchema);
+module.exports = mongoose.model("tasks", taskSchema);
